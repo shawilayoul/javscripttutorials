@@ -1,0 +1,123 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-image: linear-gradient(0deg,
+            rgba(247, 247, 247, 1)23.8%,
+            rgba(252, 221, 221, 1)92%);
+}
+
+.music-container {
+    display: flex;
+    background-color: #fff;
+    border-radius: 5px;
+    margin: 100px 0;
+    box-shadow: 0 20px 20px 0 rgba(252, 169, 221, 1);
+    z-index: 10px;
+    position: relative;
+    padding: 20px 30px;
+}
+
+
+.img-container {
+    width: 110px;
+    position: relative;
+}
+
+.img-container::after {
+    position: absolute;
+    content: '';
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: blue;
+    bottom: 50px;
+    left: 50%;
+    transform: translate(-50%, 50%);
+}
+
+.img-container img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    animation: rotate 3s linear infinite;
+    animation-play-state: paused;
+}
+
+.music-container.play .img-container img {
+    animation-play-state: running;
+}
+
+.container-info {
+    background-color: #fff;
+    position: absolute;
+    top: 0;
+    opacity: 0;
+    z-index: 0;
+    border-radius: 5px;
+    transform: translateX(0%);
+    transition: transform 3s ease-in, opacity 3s ease-in;
+}
+
+.music-container.play .container-info {
+    transform: translateY(-100%);
+    opacity: 1;
+    width: calc(100% - 40px);
+    padding: 10px 10px 10px 150px;
+}
+
+.container-info h4 {
+    margin: 0;
+}
+
+.progress-container {
+    background-color: antiquewhite;
+    width: 100%;
+    height: 4px;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+.progress {
+    background-color: rgba(255, 0, 0, 0.909);
+    width: 0%;
+    height: 4px;
+}
+
+.navigation {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.action-btn {
+    margin-left: 20px;
+    font-size: 24px;
+    border: 0;
+}
+
+@keyframes rotate {
+    form {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.img-container::after {
+    content: '';
+    height: 20px;
+    width: 20px;
+    background-color: #fff;
+    border-radius: 50%;
+}
